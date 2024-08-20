@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 设置版本号
-current_version=20240820007
+current_version=20240820008
 
 update_script() {
     # 指定URL
@@ -224,7 +224,6 @@ User=$USER
 WorkingDirectory=$HOME/llm-loss-validator/src
 EnvironmentFile=$HOME/.env_validator
 ExecStart=/home/ubuntu/miniconda/bin/python start.sh --hf_token $HF_TOKEN --flock_api_key $FLOCK_API_KEY --task_id $TASK_ID --validation_args_file validation_config.json.example --auto_clean_cache False
-
 Restart=on-failure
 
 [Install]
@@ -259,6 +258,7 @@ function stop_validator_node(){
 
 # 启动验证节点
 function start_validator_node(){
+    source ~/.bashrc
     sudo systemctl start validator
     #screen -dmS validator bash start.sh --hf_token $HF_TOKEN --flock_api_key $FLOCK_API_KEY --task_id $TASK_ID --validation_args_file validation_config.json.example --auto_clean_cache False
 	echo "验证节点已启动"
