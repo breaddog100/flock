@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 设置版本号
-current_version=20240820004
+current_version=20240820005
 
 update_script() {
     # 指定URL
@@ -299,7 +299,7 @@ function main_menu() {
 	    echo "1618. 卸载训练节点 uninstall_training_node"
         echo "----------------------验证节点-----------------------"
 	    echo "21. 部署验证节点 install_validator_node"
-	    echo "23. 验证节点日志 view_validator_logs"
+	    echo "22. 验证节点日志 view_validator_logs"
 	    echo "23. 停止验证节点 stop_validator_node"
 	    echo "24. 启动验证节点 start_validator_node"
 	    echo "25. 卸载验证节点 uninstall_validator_node"
