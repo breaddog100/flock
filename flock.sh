@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 设置版本号
-current_version=20240820006
+current_version=20240820007
 
 update_script() {
     # 指定URL
@@ -223,7 +223,8 @@ Type=simple
 User=$USER
 WorkingDirectory=$HOME/llm-loss-validator/src
 EnvironmentFile=$HOME/.env_validator
-ExecStart=/bin/bash start.sh --hf_token $HF_TOKEN --flock_api_key $FLOCK_API_KEY --task_id $TASK_ID --validation_args_file validation_config.json.example --auto_clean_cache False
+ExecStart=/home/ubuntu/miniconda/bin/python start.sh --hf_token $HF_TOKEN --flock_api_key $FLOCK_API_KEY --task_id $TASK_ID --validation_args_file validation_config.json.example --auto_clean_cache False
+
 Restart=on-failure
 
 [Install]
