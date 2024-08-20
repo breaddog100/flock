@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 设置版本号
-current_version=20240819001
+current_version=20240820001
 
 update_script() {
     # 指定URL
@@ -101,6 +101,11 @@ EOF
     sudo systemctl enable training
     sudo systemctl start training
 	echo "训练节点部署完成..."
+}
+
+# 查看训练节点状态
+function view_training_status(){
+    sudo systemctl status training
 }
 
 # 查看训练节点日志
@@ -233,6 +238,11 @@ EOF
     #screen -dmS validator bash start.sh --task_id $TASK_ID --flock_api_key $FLOCK_API_KEY --hf_token $HF_TOKEN --validation_args_file validation_config.json.example --auto_clean_cache False
 
 	echo "验证节点部署完成"
+}
+
+# 查看验证节点状态
+function view_validator_status(){
+    sudo systemctl status validator
 }
 
 # 查看验证节点日志
