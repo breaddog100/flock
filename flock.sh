@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 设置版本号
-current_version=20240820001
+current_version=20240820004
 
 update_script() {
     # 指定URL
@@ -154,7 +154,7 @@ function install_validator_node() {
     read -p "Hugging Face Token: " HF_TOKEN
 
     # 是否使用GPU
-    read -r -p "是否使用GPU运算？ " response
+    read -r -p "是否使用GPU运算？ (y使用GPU，n使用CPU)" response
     case "$response" in
         [yY][eE][sS]|[yY]) 
             echo "修改参数，使用GPU运行..."
@@ -194,7 +194,7 @@ function install_validator_node() {
     # 克隆仓库
     git clone https://github.com/FLock-io/llm-loss-validator.git
     cd llm-loss-validator
-    conda create -n llm-loss-validator python==3.10 -y
+    $HOME/miniconda/bin/conda create -n llm-loss-validator python==3.10 -y
     source "$HOME/miniconda/bin/activate" llm-loss-validator
     # 安装依赖
     pip install -r requirements.txt
@@ -303,7 +303,7 @@ function main_menu() {
 	    echo "23. 停止验证节点 stop_validator_node"
 	    echo "24. 启动验证节点 start_validator_node"
 	    echo "25. 卸载验证节点 uninstall_validator_node"
-	    echo "2618. 卸载验证节点 uninstall_validator_node"
+	    echo "2628. 卸载验证节点 uninstall_validator_node"
 	    echo "0. 退出脚本 exit"
 	    read -p "请输入选项: " OPTION
 	
